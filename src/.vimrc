@@ -4,7 +4,9 @@ set nocompatible
 # Plugin Config
     call plug#begin()
         Plug 'APZelos/blamer.nvim'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
         Plug 'airblade/vim-gitgutter'
+	Plug 'morhetz/gruvbox'
         Plug 'dense-analysis/ale'
         Plug 'godlygeek/tabular'
         Plug 'gregsexton/MatchTag'
@@ -84,6 +86,24 @@ set nocompatible
 
     highlight Blamer ctermfg=lightgray
 # End of Plugin Config
+
+# Config for gruvbox dark theme 
+autocmd vimenter * ++nested colorscheme gruvbox
+set termguicolors
+# end of gruvbox 
+
+# Coc autocomplete
+# use <tab> for trigger completion and navigate to the next complete item
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+# end of trigger completion
 
 syntax on
 filetype plugin indent on
