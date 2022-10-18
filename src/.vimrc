@@ -93,10 +93,8 @@ set termguicolors
 # end of gruvbox 
 
 # Coc autocomplete
-# use <c-space>for trigger completion
-inoremap <silent><expr> <c-space> coc#refresh()
-# Use <C-@> on vim
-inoremap <silent><expr> <c-@> coc#refresh()
+# use <TAB>for trigger completion
+inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<TAB>"
 # end of trigger completion
 
 syntax on
