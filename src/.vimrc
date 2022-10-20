@@ -6,6 +6,7 @@ set nocompatible
         Plug 'APZelos/blamer.nvim'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
         Plug 'airblade/vim-gitgutter'
+	Plug 'mattn/emmet-vim'
 	Plug 'morhetz/gruvbox'
         Plug 'dense-analysis/ale'
         Plug 'godlygeek/tabular'
