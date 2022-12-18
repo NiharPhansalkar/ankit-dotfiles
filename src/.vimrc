@@ -1,17 +1,19 @@
 vim9script
 set nocompatible
+set relativenumber
+set number
 
 # Plugin Config
     call plug#begin()
-        Plug 'APZelos/blamer.nvim'
+    Plug 'APZelos/blamer.nvim'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-        Plug 'airblade/vim-gitgutter'
+    Plug 'airblade/vim-gitgutter'
 	Plug 'mattn/emmet-vim'
 	Plug 'morhetz/gruvbox'
-        Plug 'dense-analysis/ale'
-        Plug 'godlygeek/tabular'
-        Plug 'gregsexton/MatchTag'
-        Plug 'sheerun/vim-polyglot'
+    Plug 'dense-analysis/ale'
+    Plug 'godlygeek/tabular'
+    Plug 'gregsexton/MatchTag'
+    Plug 'sheerun/vim-polyglot'
     call plug#end()
 
     highlight Blamer          ctermfg=lightgray
