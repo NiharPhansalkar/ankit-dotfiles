@@ -2,82 +2,55 @@ vim9script
 set nocompatible
 set relativenumber
 set number
-
-# Plugin Config
+ 
+ # Plugin Config
     call plug#begin()
-    Plug 'APZelos/blamer.nvim'
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'airblade/vim-gitgutter'
-	Plug 'mattn/emmet-vim'
-	Plug 'morhetz/gruvbox'
-    Plug 'dense-analysis/ale'
-    Plug 'godlygeek/tabular'
-    Plug 'gregsexton/MatchTag'
-    Plug 'sheerun/vim-polyglot'
+        Plug 'APZelos/blamer.nvim'
+        Plug 'neoclide/coc.nvim', {'branch': 'release'}
+        Plug 'airblade/vim-gitgutter'
+        Plug 'mattn/emmet-vim'
+        Plug 'morhetz/gruvbox'
+        Plug 'dense-analysis/ale'
+        Plug 'godlygeek/tabular'
+        Plug 'gregsexton/MatchTag'
+        Plug 'sheerun/vim-polyglot'
+        Plug 'APZelos/blamer.nvim'
     call plug#end()
-
-    highlight Blamer          ctermfg=lightgray
-    highlight GitGutterAdd    ctermfg=darkgreen
-    highlight GitGutterChange ctermfg=darkyellow
-    highlight GitGutterDelete ctermfg=darkred
-
-    runtime macros/matchit.vim
-
-    g:ale_fixers = {
-        'c': [
-            'astyle',
-        ],
-        'cpp': [
-            'astyle',
-        ],
-        'css': [
-            'prettier',
-        ],
-        'html': [
-            'prettier',
-        ],
-        'java': [
-            'google_java_format',
-        ],
-        'javascript': [
-            'prettier',
-        ],
-        'json': [
-            'prettier',
-        ],
-        'markdown': [
-            'prettier',
-        ],
-        'perl': [
-            'perltidy',
-        ],
-        'python': [
-            'isort',
-            'black',
-        ],
-        'sh': [
-            'shfmt',
-        ],
-        'terraform': [
-            'terraform',
-        ],
-        'typescript': [
-            'prettier',
-        ],
-        'xml': [
-            'xmllint',
-        ],
-        'yaml': [
-            'prettier',
-        ],
-    }
-    g:ale_linters_ignore = {
-        'java': [
-            'checkstyle',
-        ],
-    }
-
+ 
+     highlight Blamer          ctermfg=lightgray
+     highlight GitGutterAdd    ctermfg=darkgreen
+     highlight GitGutterChange ctermfg=darkyellow
+     highlight GitGutterDelete ctermfg=darkred
+     runtime macros/matchit.vim
+ 
+     g:ale_fixers = {
+        c:          ['astyle'            ],
+        cpp:        ['astyle'            ],
+        css:        ['prettier'          ],
+        hcl:        ['packer'            ],
+        html:       ['prettier'          ],
+        java:       ['google_java_format'],
+        javascript: ['prettier'          ],
+        json:       ['jq'                ],
+        markdown:   ['prettier'          ],
+        perl:       ['perltidy'          ],
+        python:     ['isort', 'black'    ],
+        sh:         ['shfmt'             ],
+        terraform:  ['terraform'         ],
+        typescript: ['prettier'          ],
+        xml:        ['xmllint'           ],
+        yaml:       ['prettier'          ],
+     }
+     g:ale_linters_ignore = {
+        java: ['checkstyle'],
+     }
+ 
     g:ale_java_google_java_format_options = '--aosp'
+    g:ale_json_jq_options = '-S --indent 4'
+    g:ale_python_flake8_options = '--ignore=E501'
+    g:ale_python_ruff_options = '--ignore=E501'
+    g:ale_sql_sqlfluff_options = '--dialect postgres'
+    g:ale_virtualtext_cursor = 'disabled'
     g:blamer_date_format = '%Y-%m-%dT%H:%M:%S%Z'
     g:blamer_delay = 300
     g:blamer_enabled = 0
@@ -86,10 +59,10 @@ set number
     g:blamer_template = '<committer-mail> <committer-time> <summary>'
     g:syntastic_python_flake8_args = '--ignore=E501'
     g:syntastic_python_python_exec = 'python3'
-
+ 
     highlight Blamer ctermfg=lightgray
-# End of Plugin Config
-
+ # End of Plugin Config
+ 
 # Config for gruvbox dark theme 
 autocmd vimenter * ++nested colorscheme gruvbox
 set termguicolors
@@ -102,7 +75,7 @@ inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<
 
 syntax on
 filetype plugin indent on
-
+ 
 highlight ColorColumn ctermbg=darkgray
 highlight StatusLine ctermbg=darkgray ctermfg=black
 highlight StatusLineNC ctermbg=darkgray ctermfg=black
